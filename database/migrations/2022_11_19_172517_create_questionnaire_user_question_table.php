@@ -19,10 +19,10 @@ class CreateQuestionnaireUserQuestionTable extends Migration
             $table->primary(['questionnaire_id', 'question_id']);
             $table->unsignedBigInteger('user_id')->index();
 
-            $table->string('csp_caiq_answer')->nullable();;
-            $table->string('ssrm_control_ownership')->nullable();;
-            $table->text('csp_implementation_description')->nullable();;
-            $table->text('csc_responsibilities')->nullable();;
+            $table->string('csp_caiq_answer')->nullable();
+            $table->string('ssrm_control_ownership')->nullable();
+            $table->text('csp_implementation_description')->nullable();
+            $table->text('csc_responsibilities')->nullable();
 
             $table->foreign('questionnaire_id')
 				->references('id')

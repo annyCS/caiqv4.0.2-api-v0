@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DomainController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/domains', [DomainController::class, 'domains']);
+
+Route::get('/domains/{id}/ccmcontrols', [
+    DomainController::class, 'listccmcontrols'
+])->name('domains.ccmcontrols');

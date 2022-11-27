@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->unsignedBigInteger('ccmcontrol_id');
 
             $table->text('code');
-            $table->text('title')->nullable();
+            $table->text('title', 1000)->nullable();
 
             $table->foreign('ccmcontrol_id')
                 ->references('id')

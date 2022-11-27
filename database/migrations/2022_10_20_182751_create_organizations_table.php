@@ -20,8 +20,8 @@ class CreateOrganizationsTable extends Migration
             $table->string('name');
             $table->string('cif')->nullable();
             $table->text('address')->nullable();
-            $table->string('website')->nullable();
-            $table->binary('logo')->nullable();
+            $table->string('website', 1000)->nullable();
+            $table->string('logo_url', 1000)->nullable();
         });
     }
 

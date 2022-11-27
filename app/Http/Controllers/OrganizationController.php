@@ -3,48 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Domain;
-use App\Models\CCMControl;
 
-class DomainController extends Controller
+class OrganizationController extends Controller
 {
     /**
-     * Display a listing of domains.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function domains()
-    {
-        $domains = Domain::all();
-
-        return response()->json($domains);
-    }
-
-    
-    public function listccmcontrols($id)
-    {
-        $ccmcontrols = Domain::where('id', $id)
-                        ->with('ccmcontrols')
-                        ->firstOrFail();
-
-        //where('domain_id', $request)->get();
-
-        return response()->json($ccmcontrols);
-    }
-
-
-
-
-
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index()
     {
         //
     }
@@ -67,17 +34,6 @@ class DomainController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

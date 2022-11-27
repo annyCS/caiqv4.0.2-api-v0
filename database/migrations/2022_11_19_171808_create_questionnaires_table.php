@@ -18,7 +18,7 @@ class CreateQuestionnairesTable extends Migration
             $table->unsignedBigInteger('user_owner');
 
             $table->text('name')->unique();
-            $table->text('description')->nullable();
+            $table->mediumText('description')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('lastupdate_at')->nullable();
             $table->unsignedBigInteger('lastupdate_by');

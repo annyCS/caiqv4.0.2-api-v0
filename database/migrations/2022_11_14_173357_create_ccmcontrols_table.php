@@ -19,8 +19,8 @@ class CreateCcmcontrolsTable extends Migration
             
             $table->string('code')->unique();
             $table->string('title');
-            $table->string('specification')->nullable();
-            $table->mediumText('guidelines')->nullable();
+            $table->longText('specification')->nullable();
+            $table->longText('guidelines')->nullable();
 
             $table->foreign('domain_id')
                 ->references('id')

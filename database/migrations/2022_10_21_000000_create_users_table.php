@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('lastname')->nullable();
             $table->string('job_position')->nullable();
+            $table->boolean('active')->default(false);
 
             $table->foreign('organization_id')
                 ->references('id')
@@ -33,7 +34,7 @@ class CreateUsersTable extends Migration
             
             // $table->timestamp('email_verified_at')->nullable();
             
-            // $table->rememberToken();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

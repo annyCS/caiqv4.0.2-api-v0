@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Organization extends Model
 {
-    use HasFactory;
-
-    protected $table = 'questions';
+    protected $table = 'organizations';
 
     protected $fillable = [
         'account_owner',

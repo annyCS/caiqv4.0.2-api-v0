@@ -20,6 +20,8 @@ class CreateDomainsTable extends Migration
             $table->string('title')->nullable();
             $table->string('abbreviation')->unique()->nullable();
             $table->longText('description')->nullable();
+            $table->string('color')->default('#000000');
+            $table->string('img_url')->nullable();
         });
     }
 

@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('organization_id');
             
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->binary('password')->nullable();
-            $table->string('password_temp');
+            $table->string('password_temp')->nullable();
             $table->string('name')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('job_position')->nullable();
+            $table->string('job')->nullable();
             $table->boolean('active')->default(false);
 
             $table->foreign('organization_id')

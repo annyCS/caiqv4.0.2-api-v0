@@ -15,7 +15,9 @@ class Domain extends Model
         'domain_num',
         'title',
         'abbreviation',
-        'description'
+        'description',
+        'color',
+        'img_url'
     ];
 
     public function ccmcontrols()

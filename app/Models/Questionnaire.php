@@ -15,9 +15,11 @@ class Questionnaire extends Model
         'name',
         'description',
         'created_at',
-        'lastupdate_at'
+        'lastupdate_at',
+        'created_by',
+        'lastupdate_by'
     ];
-
+/*
     public function created_by()            // Relacion 1:N entre QUESTIONNAIRE - USERS (accion de crear cuestionarios, no responderlos)
     {
         return $this->belongsTo(User::class);
@@ -27,16 +29,16 @@ class Questionnaire extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function user()                  // Relacion ternaria N:M:1 entre QUESTIONNAIRES - QUESTIONS - USERS (accion de responder preguntas de un cuestionario)
+*/
+    public function organization()                  // Relacion ternaria N:M:1 entre QUESTIONNAIRES - QUESTIONS - ORGANIZATIONS (accion de responder preguntas de un cuestionario)
     {
-        return $this->belongsToMany(User::class, 'questionnaire_user_question')
+        return $this->belongsToMany(Organization::class, 'questionn_org_question')
             ->withPivot('question_id', 'csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
     }
 
     public function questions()
     {
-        return $this->belongsToMany(Question::class, 'questionnaire_user_question')
-            ->withPivot('user_id', 'csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
+        return $this->belongsToMany(Question::class, 'questionn_org_question')
+            ->withPivot('organization_id', 'csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
     }
 }

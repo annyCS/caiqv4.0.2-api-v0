@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionnaireUserQuestionTable extends Migration
+class CreateQuestionnOrgQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateQuestionnaireUserQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('questionnaire_user_question', function (Blueprint $table) {
+        Schema::create('questionn_org_question', function (Blueprint $table) {
             $table->unsignedBigInteger('questionnaire_id');
             $table->unsignedBigInteger('question_id');
             $table->primary(['questionnaire_id', 'question_id']);
-            $table->unsignedBigInteger('user_id')->index();
-
-            $table->mediumText('csp_caiq_answer')->nullable();
-            $table->mediumText('ssrm_control_ownership')->nullable();
+            $table->unsignedBigInteger('organization_id')->index();
+            
+            $table->enum('csp_caiq_answer', ['Yes', 'No', 'NA'])->default('NA')->nullable();
+            $table->enum('ssrm_control_ownership', ['CSP-owned', 'CSC-owned', '3rd-party outsourced', 'Shared CSP and CSC', 'Shared CSP and 3rd-party'])->nullable();
             $table->longText('csp_implementation_description')->nullable();
             $table->longText('csc_responsibilities')->nullable();
 
@@ -36,9 +36,9 @@ class CreateQuestionnaireUserQuestionTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             
-            $table->foreign('user_id')
+            $table->foreign('organization_id')
                 ->references('id')
-                ->on('users')
+                ->on('organizations')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
@@ -53,6 +53,6 @@ class CreateQuestionnaireUserQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionnaire_user_question');
+        Schema::dropIfExists('questionn_org_question');
     }
 }

@@ -15,23 +15,23 @@ class CreateQuestionnairesTable extends Migration
     {
         Schema::create('questionnaires', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_owner');
 
             $table->text('name')->unique();
             $table->mediumText('description')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('lastupdate_at')->nullable();
-            $table->unsignedBigInteger('lastupdate_by');
+            $table->string('created_by')->index();
+            $table->string('lastupdate_by')->index();
 
-            $table->foreign('user_owner')
-                ->references('id')
+            $table->foreign('created_by')
+                ->references('username')
                 ->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onUpdate('cascade');
             
             $table->foreign('lastupdate_by')
-                ->references('id')
-                ->on('users');
+                ->references('username')
+                ->on('users')
+                ->onUpdate('cascade');
         });
     }
 

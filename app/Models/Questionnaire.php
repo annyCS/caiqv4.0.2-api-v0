@@ -15,10 +15,16 @@ class Questionnaire extends Model
         'name',
         'description',
         'created_at',
-        'lastupdate_at',
         'created_by',
-        'lastupdate_by'
+        'lastupdate_at',
+        'lastupdate_by',
+        'status'
     ];
+
+    public function historical_user_lastopened()        
+    {
+        return $this->hasMany($this, 'historical_user_lastopened', 'user_id', 'questionnaire_id');
+    }
 /*
     public function created_by()            // Relacion 1:N entre QUESTIONNAIRE - USERS (accion de crear cuestionarios, no responderlos)
     {

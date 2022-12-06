@@ -17,25 +17,24 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('organization_id');
             
-            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->binary('password')->nullable();
             $table->string('password_temp')->nullable();
-            $table->string('name')->nullable();
+            $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('job')->nullable();
+            $table->string('job_title')->nullable();
             $table->boolean('active')->default(false);
+            $table->boolean('is_owneraccount')->default(false);    
+
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
 
             $table->foreign('organization_id')
                 ->references('id')
                 ->on('organizations')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            
-            // $table->timestamp('email_verified_at')->nullable();
-            
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

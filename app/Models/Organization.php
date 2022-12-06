@@ -10,12 +10,16 @@ class Organization extends Model
     protected $table = 'organizations';
 
     protected $fillable = [
-        'account_owner',
-        'name',
+        'email_account_owner',
+        'company_name',
+        'profile',
         'cif',
         'address',
+        'country',
+        'state',
+        'zipcode',
         'website',
-        'logo'
+        'logo_url'
     ];
 
     public function users()

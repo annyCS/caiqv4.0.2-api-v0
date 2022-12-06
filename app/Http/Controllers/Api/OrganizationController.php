@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Organization;
+use App\Models\User;
 
 class OrganizationController extends Controller
 {
@@ -20,5 +22,13 @@ class OrganizationController extends Controller
             ->firstOrFail();
 
         return response()->json($organization);
+    }
+
+    public function listUsers($id)
+    {
+        $users = User::where('organization_id', $id)
+            ->get();
+
+        return response()->json($users);
     }
 }

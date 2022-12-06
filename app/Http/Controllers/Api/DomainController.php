@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Domain;
 use App\Models\CCMControl;
 
@@ -24,10 +25,8 @@ class DomainController extends Controller
     public function listccmcontrols($id)
     {
         $ccmcontrols = Domain::where('id', $id)
-                        ->with('ccmcontrols')
-                        ->firstOrFail();
-
-        //where('domain_id', $request)->get();
+            ->with('ccmcontrols')
+            ->firstOrFail();
 
         return response()->json($ccmcontrols);
     }

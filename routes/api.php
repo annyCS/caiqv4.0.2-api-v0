@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\DomainController;
-use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\Api\DomainController;
+use App\Http\Controllers\Api\OrganizationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,9 +25,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Organization API
 =========================================================================*/
 Route::get('/organizations', [OrganizationController::class, 'organizations']);
+
 Route::get('/organizations/{id}/detail', [
     OrganizationController::class, 'organizationDetail'
 ])->name('organization.detail');
+
+Route::get('/organizations/{id}/listUsers', [
+    OrganizationController::class, 'listUsers'
+])->name('organization.listUsers');
 
 
 /*=======================================================================

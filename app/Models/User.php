@@ -18,13 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
         'email',
         'password',
         'password_temp',
-        'name',
+        'firstname',
         'lastname',
-        'job'
+        'job_title',
     ];
 
     /**
@@ -51,6 +50,10 @@ class User extends Authenticatable
         return $this->belongsTo(Organization::class);
     }
 
+    public function historical_user_lastopened()        
+    {
+        return $this->hasMany($this, 'historical_user_lastopened', 'user_id', 'questionnaire_id');
+    }
 /*
     public function created_questionnaires()        // Relacion 1:N entre QUESTIONNAIRE - USERS (accion de crear cuestionarios, no responderlos)
     {

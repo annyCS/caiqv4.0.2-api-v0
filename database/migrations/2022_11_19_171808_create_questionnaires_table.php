@@ -16,22 +16,25 @@ class CreateQuestionnairesTable extends Migration
         Schema::create('questionnaires', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->text('name')->unique();
+            $table->text('name')->nullable();
             $table->mediumText('description')->nullable();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at');
+            $table->string('created_by')->index()->nullable();
             $table->timestamp('lastupdate_at')->nullable();
-            $table->string('created_by')->index();
-            $table->string('lastupdate_by')->index();
+            $table->string('lastupdate_by')->index()->nullable();
+            $table->enum('status', ['completed', 'in_progress', 'non-status'])->default('non-status');
 
             $table->foreign('created_by')
-                ->references('username')
+                ->references('email')
                 ->on('users')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->nullOnDelete();
             
             $table->foreign('lastupdate_by')
-                ->references('username')
+                ->references('email')
                 ->on('users')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->nullOnDelete();
         });
     }
 

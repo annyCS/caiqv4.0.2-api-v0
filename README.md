@@ -1,14 +1,35 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="./storage/readme_sources/logo_alt.png" width="400"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## CAIQ v4.0.2 - CSA Questionnaire Application
 
+# Descripción del proyecto
+CAIQ es un acrónimo de Consensus Assessment Initiative Questionnaire. Se trata de un cuestionario de hoja de cálculo descargable de preguntas de sí o no que corresponden a los controles de Cloud Controls Matrix (CCM) de CSA , el marco de controles de seguridad cibernética para el cloud computing. Un proveedor de servicios en la nube (CSP) IaaS, PaaS o SaaS puede usar el CAIQ para documentar qué controles de seguridad existen en sus servicios. Esto aumenta la transparencia del control de seguridad para los clientes potenciales, quienes luego pueden determinar si los servicios en la nube del CSP son lo suficientemente seguros para los propósitos del cliente.
+
+Este proyecto consiste en una API que te permite poder realizar este cuestionario de una manera más felxible y friendly, ideal para aquellos proveedores SaaS que se están iniciando en el abordaje de marcos de seguridad.
+
+La herramienta, que contiene precargado toda la estrucutra base del cuestionario, te permite además de crear múltiples cuestionarios asociados a una misma organización, la siguientes funcionalidades:
+- Crear una organización para centralizar diferentes cuestionarios y que estos puedan ser editados o completados por otros usuarios.
+
+- Gestionar los cuestionarios pertenecientes a la organización del usuario.
+
+- Obtener los resultados de todas preguntas completadas y ofrecerte un resumen del estado del cuestionario.
+
+- Poder integrarlo con tu propia interfaz de usuario:
+    * Es compatible con cualquier framework frontend tipo nuxt.js o next.js o incluso HTML puro.
+    * Sólo debe realizarse las llamadas siguiendo la documentación de la API para poder realizar las peticiones que se necesitan.
+
+- Las ventajas de esta herramienta frente a otras disponibles en el mercado son:
+- Facilidad de instalación, configuración y ampliación.
+- De bajo coste y sin requerir hardware adicional.
+
+
+# Características
+Para el desarrollo de esta API se ha empleado Laravel por si 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).

@@ -57,8 +57,7 @@ cd caiqv4.0.2-api-v0
 composer install
 ```
 
-4. Copiar el fichero .env.example en la misma carpeta y renombrar la copia como .env.
-Abrir este fichero y actualizar los siguientes campos
+4. Copiar el fichero `.env.example` en `.env` actualizar los siguientes campos
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -68,8 +67,9 @@ DB_USERNAME=your-database-user
 DB_PASSWORD=your-database-password
 ```
 
-5. Ejecutar el proyecto.
+5. Ejecutar el proyecto usandoel comando `serve` de Artisan.
 ```bash
+# Serve the application...
 php artisan serve
 ```
 

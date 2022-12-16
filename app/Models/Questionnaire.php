@@ -25,28 +25,15 @@ class Questionnaire extends Model
     {
         return $this->hasMany($this, 'historical_user_lastopened', 'user_id', 'questionnaire_id');
     }
-/*
-    public function created_by()            // Relacion 1:N entre QUESTIONNAIRE - USERS (accion de crear cuestionarios, no responderlos)
-    {
-        return $this->belongsTo(User::class);
-    }
 
-    public function lastupdate_by()         // Relacion 1:N entre QUESTIONNAIRE - USERS (accion de actualizar cuestionarios, no responderlos)  
+    public function organizations()              
     {
-        return $this->belongsTo(User::class);
-    }
-*/
-    public function organizations()                  // Relacion ternaria N:M:1 entre QUESTIONNAIRES - QUESTIONS - ORGANIZATIONS (accion de responder preguntas de un cuestionario)
-    {
-        return $this->belongsToMany(Organization::class, 'questionn_org_question', 'questionnaire_id', 'organization_id')
-            ->withPivot('csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
-            // ->withPivot('question_id', 'csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
+        return $this->belongsTo(Organization::class);
     }
 
     public function questions()
     {
-        return $this->belongsToMany(Question::class, 'questionn_org_question', 'questionnaire_id', 'question_id')
+        return $this->belongsToMany(Question::class, 'pivot_answers', 'questionnaire_id', 'question_id')
             ->withPivot('csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
-            // ->withPivot('organization_id', 'csp_caiq_answer', 'ssrm_control_ownership','csp_implementation_description','csc_responsibilities');
     }
 }

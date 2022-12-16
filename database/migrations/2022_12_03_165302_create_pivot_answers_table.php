@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionnOrgQuestionTable extends Migration
+class CreatePivotAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateQuestionnOrgQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('questionn_org_question', function (Blueprint $table) {
+        Schema::create('pivot_answers', function (Blueprint $table) {
             $table->unsignedBigInteger('questionnaire_id');
             $table->unsignedBigInteger('question_id');
             $table->primary(['questionnaire_id', 'question_id']);
-            $table->unsignedBigInteger('organization_id')->index();
+            //$table->unsignedBigInteger('organization_id')->index();
             
             $table->enum('csp_caiq_answer', ['Yes', 'No', 'NA'])->default('NA')->nullable();
             $table->enum('ssrm_control_ownership', ['CSP-owned', 'CSC-owned', '3rd-party outsourced', 'Shared CSP and CSC', 'Shared CSP and 3rd-party'])->nullable();
@@ -36,11 +36,11 @@ class CreateQuestionnOrgQuestionTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             
-            $table->foreign('organization_id')
+            /*$table->foreign('organization_id')
                 ->references('id')
                 ->on('organizations')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('cascade');*/
 
             $table->timestamps();
         });
@@ -53,6 +53,6 @@ class CreateQuestionnOrgQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionn_org_question');
+        Schema::dropIfExists('pivot_answers');
     }
 }

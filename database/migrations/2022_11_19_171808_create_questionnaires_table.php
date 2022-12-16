@@ -15,6 +15,7 @@ class CreateQuestionnairesTable extends Migration
     {
         Schema::create('questionnaires', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('organization_id');
 
             $table->text('name')->nullable();
             $table->mediumText('description')->nullable();
@@ -24,6 +25,12 @@ class CreateQuestionnairesTable extends Migration
             $table->string('lastupdate_by')->index()->nullable();
             $table->enum('status', ['completed', 'in_progress', 'non-status'])->default('non-status');
 
+            $table->foreign('organization_id')
+                ->references('id')
+                ->on('organizations')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            
             $table->foreign('created_by')
                 ->references('email')
                 ->on('users')

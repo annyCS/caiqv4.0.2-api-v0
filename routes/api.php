@@ -36,13 +36,13 @@ Route::get('organizations/{id}/detail', [
     OrganizationController::class, 'organizationDetail'
 ])->name('organization.detail');
 
-Route::get('organizations/{id}/listUsers', [
+Route::get('organizations/{id}/users', [
     OrganizationController::class, 'listUsers'
-])->name('organization.listUsers');
+])->name('organization.users');
 
-Route::get('organizations/{id}/listQuestionnaires', [
-    OrganizationController::class, 'listQuestionnaires'
-])->name('organization.listQuestionnaires');
+Route::get('organizations/{id}/relationships/questionnaires', [
+    OrganizationController::class, 'listQuestionnairesByOrganization'
+])->name('organization.relationships.questionnaires');
 
 
 /*--------------------------------------------------------------------------
@@ -53,3 +53,11 @@ Route::get('domains', [DomainController::class, 'domains']);
 Route::get('domains/{id}/ccmcontrols', [
     DomainController::class, 'listccmcontrols'
 ])->name('domains.ccmcontrols');
+
+
+/*--------------------------------------------------------------------------
+ Questionnaire API
+--------------------------------------------------------------------------*/
+Route::get('questionnaire/{id}/relationships/answers', [
+    QuestionnaireController::class, 'listAnswers'
+])->name('questionnaire.relationships.answers');

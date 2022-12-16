@@ -4,7 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\DomainController;
+use App\Http\Controllers\Api\CCMController;
 use App\Http\Controllers\Api\OrganizationController;
+use App\Http\Controllers\Api\QuestionnaireController;
+use App\Http\Controllers\Api\QuestionController;
 use App\Http\Middleware\ValidateJsonApiDocument;
 use App\Http\Middleware\ValidateJsonApiHeaders;
 /*

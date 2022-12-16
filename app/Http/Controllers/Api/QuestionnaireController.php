@@ -14,7 +14,9 @@ class QuestionnaireController extends Controller
 {
     public function listAnswers($id)
     {
-        $answers = AnswerController::getAnswersbyQuestionnaire($id);
+        $answers = Questionnaire::where('id', $id)
+            ->with('questions')
+            ->get();
 
         return response()->json($answers);
     }

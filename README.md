@@ -82,7 +82,7 @@ php artisan serve
 php artisan migrate
 ```
 
-8. Descomprimir el archivo *csa-caiqv4_0_2_INSERT_VALUES_all.sql* e importarlo en la bbdd que configuraste en el archivo `.env`.
+8. Descomprimir el archivo *caiqv4.0.2-bbdd-migrations.zip* e importarlo en la bbdd que configuraste en el archivo `.env`.
 
 
 9. Acceder desde el navegador a http://127.0.0.1:8000 para comprobar que la conexión se ha establecido de manera correcta.

@@ -11,14 +11,8 @@ use Illuminate\Support\Facades\Cache;
 
 class AnswerController extends Controller
 {
-    public function listAnswers($id)
+    public function getAnswersbyQuestionnaire($id)
     {
-        $questionnaires = Cache::rememberForever('list_questions_by_questionnaireId_' . $id, function () use ($id) {
-            return Question::query()
-                ->where('organization_id', '=', $id)
-                ->get();
-        });
-
-        return response()->json($questionnaires);
+        
     }
 }

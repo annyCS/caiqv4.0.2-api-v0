@@ -36,7 +36,7 @@ La herramienta, que contiene precargado toda la estrucutra base del cuestionario
 
 
 ## Pre-requisitos
-- Instalar [composer](https://getcomposer.org/) (gestor de dependencias para PHP)
+- Instalar [Composer](https://getcomposer.org/) (gestor de dependencias para PHP)
 - Instalar [Xampp](https://www.apachefriends.org/es/index.html), Wamp o Laragon (apache + MariaDB)
 - Instalar [Postman](https://www.postman.com/downloads/) (plataforma para construir y usar APIs)
 
@@ -57,7 +57,8 @@ cd caiqv4.0.2-api-v0
 composer install
 ```
 
-4. Copiar el fichero .env.example en la misma carpeta y renombrar la copia como .env. Abrir este fichero y actualizar los siguientes campos
+4. Copiar el fichero .env.example en la misma carpeta y renombrar la copia como .env.
+Abrir este fichero y actualizar los siguientes campos
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1

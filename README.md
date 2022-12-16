@@ -82,10 +82,13 @@ php artisan serve
 php artisan migrate
 ```
 
-8. Acceder desde el navegador a http://127.0.0.1:8000 para comprobar que la conexión se ha establecido de manera correcta.
+8. Descomprimir el archivo *csa-caiqv4_0_2_INSERT_VALUES_all.sql* e importarlo en la bbdd que configuraste en el archivo `.env`.
 
 
-9. Empezar a utilizar la API mediante Postman.
+9. Acceder desde el navegador a http://127.0.0.1:8000 para comprobar que la conexión se ha establecido de manera correcta.
+
+
+10. Empezar a utilizar la API mediante Postman.
 
 
 ## License

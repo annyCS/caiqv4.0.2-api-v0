@@ -61,3 +61,4 @@ Route::get('domains/{id}/ccmcontrols', [
 Route::get('questionnaire/{id}/relationships/answers', [
     QuestionnaireController::class, 'listAnswers'
 ])->name('questionnaire.relationships.answers');
+

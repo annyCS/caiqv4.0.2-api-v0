@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\AnswerController;
 use App\Models\Questionnaire;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -11,14 +12,11 @@ use Illuminate\Support\Facades\Cache;
 
 class QuestionnaireController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function listAnswers($id)
     {
-        //
+        $answers = AnswerController::getAnswersbyQuestionnaire($id);
+
+        return response()->json($answers);
     }
 
     /**

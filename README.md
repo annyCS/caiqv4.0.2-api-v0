@@ -67,7 +67,7 @@ DB_USERNAME=your-database-user
 DB_PASSWORD=your-database-password
 ```
 
-5. Ejecutar el proyecto usandoel comando `serve` de Artisan.
+5. Ejecutar el proyecto usandoel comando Artisan `serve`.
 ```bash
 # Serve the application...
 php artisan serve
@@ -75,9 +75,18 @@ php artisan serve
 
 6. Ejecutar Apache y Mysql desde Xampp/Wampp/Laragon.
 
-7. Acceder desde el navegador a http://127.0.0.1:8000 para comprobar que la conexión se ha establecido de manera correcta
 
-6. Empezar a utilizar la API mediante Postman.
+7. Ejecuta las migraciones necesarias del proyecto mediante el comando Artisan `migrate`.
+```bash
+# Running migrations...
+php artisan migrate
+```
+
+8. Acceder desde el navegador a http://127.0.0.1:8000 para comprobar que la conexión se ha establecido de manera correcta.
+
+
+9. Empezar a utilizar la API mediante Postman.
+
 
 ## License
 
